@@ -1,0 +1,14 @@
+
+<h1>ログインフォーム</h1>
+<%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+  <div class="sessions_new">
+    <%= f.label :メールアドレス %>
+    <%= f.email_field :email %>
+  </div>
+  <div class="sessions_new">
+    <%= f.label :パスワード %>
+    <%= f.password_field :password %>
+    <%= f.submit "ログイン" %>
+  </div>
+<% end %>
+<%= link_to 'みんなの投稿を見る', blogs_path %>

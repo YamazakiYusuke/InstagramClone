@@ -1,0 +1,14 @@
+<p>
+  <strong><%= @user.name %>のプロフィール</strong>
+</p>
+<p>
+  <strong>登録メールアドレス</strong>
+  <%= @user.email %>
+</p>
+<p>
+  <strong>プロフィール画像</strong>
+    <%= image_tag @user.image.url if @user.image.url %>
+</p>
+
+<%= link_to 'プロフィール編集へ', edit_user_path(@user) %> |
+<%= link_to '戻る', blogs_path %>

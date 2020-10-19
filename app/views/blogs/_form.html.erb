@@ -1,0 +1,28 @@
+<%= form_with(model: blog, local:true ,url:new_or_edit) do |form| %>
+  <% if blog.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(blog.errors.count, "error") %> prohibited this blog from being saved:</h2>
+
+      <ul>
+      <% blog.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :投稿を作成 %>
+    <p class="text-area"><%= form.text_area :content %>
+  </div>
+
+  <div class="field select_image">
+    <%= form.label :写真 %>
+    <p class = "select_image"><%= form.file_field :image %></P>
+    <P><%= form.hidden_field :image_cache %></P>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

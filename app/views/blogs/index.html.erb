@@ -1,0 +1,26 @@
+<div class="container">
+  <ul class="row"><h1>Instagram</h1></ul>
+  <br>
+  <br>
+  <div class="row">
+    <button type="button" class="btn btn-primary btn-lg " aria-label="Left Align">
+      <%= link_to '今の気持ちをシェアしよう', new_blog_path %>
+    </button>
+  </div>
+  <br>
+  <br>
+  <br>
+  <div class="row"><h3>みんなの投稿</h3></div>
+  <div class="row">
+    <% @blogs.each do |blog| %>
+      <p class = "index_content"><%= blog.user.name %></p>
+      <p class = "index_content"><%= blog.content %></p>
+      <p class = "index_image"><%= image_tag blog.image.url if blog.image.url %></p>
+      <div class="edits">
+        <p class="col-sm-6 col-md-3"><%= link_to '投稿を確認', blog %></p>
+        <p class="col-sm-6 col-md-3"><%= link_to '投稿を編集', edit_blog_path(blog) %></p>
+        <p class="col-sm-6 col-md-3"><%= link_to '投稿を削除', blog, method: :delete, data: { confirm: 'この投稿を削除してよろしいですか？' } %></p>
+      </div>
+    <% end %>
+  </div>
+</div>
