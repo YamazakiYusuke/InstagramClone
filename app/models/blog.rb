@@ -15,7 +15,9 @@ class Blog < ApplicationRecord
   def image?
     self.image == ""
   end
+
   def content?
     self.content == ""
   end
+  
 end
