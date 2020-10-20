@@ -18,8 +18,12 @@
       <p class = "index_image"><%= image_tag blog.image.url if blog.image.url %></p>
       <div class="edits">
         <p class="col-sm-6 col-md-3"><%= link_to '投稿を確認', blog %></p>
-        <p class="col-sm-6 col-md-3"><%= link_to '投稿を編集', edit_blog_path(blog) %></p>
-        <p class="col-sm-6 col-md-3"><%= link_to '投稿を削除', blog, method: :delete, data: { confirm: 'この投稿を削除してよろしいですか？' } %></p>
+        <% if logged_in? %>
+          <% if current_user.id == blog.user_id %>
+            <p class="col-sm-6 col-md-3"><%= link_to '投稿を編集', edit_blog_path(blog) %></p>
+            <p class="col-sm-6 col-md-3"><%= link_to '投稿を削除', blog, method: :delete, data: { confirm: 'この投稿を削除してよろしいですか？' } %></p>
+          <% end %>
+        <% end %>
       </div>
     <% end %>
   </div>

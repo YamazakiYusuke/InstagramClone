@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+
     if @user.save 
       redirect_to blogs_path, notice: "アカウントを作成しました!ようこそInstagramへ"
     else
@@ -23,9 +24,8 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    binding.pry
     @user.update(user_params)
-    redirect_to user_path(current_user.id), notice: "プロフィール更新しました!" if @user.invalid?
+    redirect_to user_path(current_user.id), notice: "プロフィール更新しました!" 
   end
 
   private

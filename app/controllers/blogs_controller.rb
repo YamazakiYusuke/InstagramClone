@@ -1,10 +1,10 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_filter, only: [:edit, :update, :destroy]
   # GET /blogs
   # GET /blogs.json
   def index
     @blogs = Blog.all
-    
   end
 
   # GET /blogs/1
@@ -29,6 +29,7 @@ class BlogsController < ApplicationController
 
   # GET /blogs/1/edit
   def edit
+    blogs_owner?
   end
 
   # POST /blogs
@@ -64,6 +65,7 @@ class BlogsController < ApplicationController
   # DELETE /blogs/1
   # DELETE /blogs/1.json
   def destroy
+    blogs_owner?
     @blog.destroy
     respond_to do |format|
       format.html { redirect_to blogs_url, notice: 'ブログを削除しました' }
@@ -72,19 +74,21 @@ class BlogsController < ApplicationController
   end
 
   private
-  # Use callbacks to share common setup or constraints between actions.
+
   def set_blog
     @blog = Blog.find(params[:id])
   end
 
-  def user_select
-    if  current_user == current_user_blog.user_id
-      redirect_to blogs_path, notice: "この操作はできません"
-    end
+  def blog_params
+    params.require(:blog).permit(:content, :image, :image_cache,)
   end
 
-  # Only allow a list of trusted parameters through.
-  def blog_params
-    params.require(:blog).permit(:content, :image, :image_cache)
+  def blogs_owner?
+    redirect_to blogs_path, notice: "あなたはこの投稿を操作できません" unless current_user.id == @blog.user_id
   end
+
+  def logged_in_filter
+    redirect_to blogs_path, notice: "あなたはこの投稿を操作できません" unless logged_in?
+  end
+
 end
