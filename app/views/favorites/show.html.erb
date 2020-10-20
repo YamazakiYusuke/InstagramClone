@@ -1,0 +1,9 @@
+<strong>お気に入り一覧</stroug>
+<% @favorites.each do |f| %>
+  <p><%= f.content %></p>
+  <p><%= image_tag f.image.url if f.image.url %></p>
+  <br>
+  <br>
+<% end %>
+
+<%= link_to "戻る", user_path(current_user.id) %>

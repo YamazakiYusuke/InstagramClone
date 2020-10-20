@@ -10,5 +10,6 @@
     <%= image_tag @user.image.url if @user.image.url %>
 </p>
 
-<%= link_to 'プロフィール編集へ', edit_user_path(@user) %> |
+<%= link_to 'お気に入り一覧', favorite_path(@user.id) %> 
+<%= link_to 'プロフィール編集へ', edit_user_path(@user) %> 
 <%= link_to '戻る', blogs_path %>

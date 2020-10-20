@@ -17,14 +17,24 @@
       <p class = "index_content"><%= blog.content %></p>
       <p class = "index_image"><%= image_tag blog.image.url if blog.image.url %></p>
       <div class="edits">
-        <p class="col-sm-6 col-md-3"><%= link_to '投稿を確認', blog %></p>
+        <p><%= link_to '投稿を確認', blog %></p>
         <% if logged_in? %>
           <% if current_user.id == blog.user_id %>
-            <p class="col-sm-6 col-md-3"><%= link_to '投稿を編集', edit_blog_path(blog) %></p>
-            <p class="col-sm-6 col-md-3"><%= link_to '投稿を削除', blog, method: :delete, data: { confirm: 'この投稿を削除してよろしいですか？' } %></p>
+            <p><%= link_to '投稿を編集', edit_blog_path(blog) %></p>
+            <p><%= link_to '投稿を削除', blog, method: :delete, data: { confirm: 'この投稿を削除してよろしいですか？' } %></p>
+          <% end %>
+          <% unless current_user.id == blog.user_id  %>
+            <% if blog.favorites.find_by(user_id:current_user.id) %>
+              <%= link_to 'お気に入り解除', favorite_path(id: blog.favorites.ids), method: :delete, class: 'btn btn-danger' %>
+            <% else %>
+              <%= link_to 'お気に入り', favorites_path(blog_id: blog.id), method: :post, class: 'btn btn-primary' %>
+            <% end %>
           <% end %>
         <% end %>
       </div>
+      <br>
+      <br>
+      <br>
     <% end %>
   </div>
 </div>

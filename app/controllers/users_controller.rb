@@ -24,8 +24,12 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    redirect_to user_path(current_user.id), notice: "プロフィール更新しました!" 
+
+    if@user.update(user_params)
+      redirect_to user_path(current_user.id), notice: "プロフィール更新しました!" 
+    else
+      redirect_to edit_user_path(current_user.id), notice: "プロフィールに失敗" 
+    end
   end
 
   private
@@ -33,5 +37,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :image)
   end
-
+  
 end
