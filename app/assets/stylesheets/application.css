@@ -89,7 +89,7 @@ h1:before {
   text-align: center;
 }
 
-.danger{
+.danger ,.notice{
   text-align: center;
   margin-top: 10px;
   font-size: 1rem;
