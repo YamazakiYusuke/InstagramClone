@@ -10,19 +10,20 @@
       </ul>
     </div>
   <% end %>
+  <div class="new_post_box">
+    <div class="field">
+      <%= form.label :投稿内容 %>
+      <p class="text-area"><%= form.text_area :content %>
+    </div>
 
-  <div class="field">
-    <%= form.label :投稿内容 %>
-    <p class="text-area"><%= form.text_area :content %>
-  </div>
+    <div class="field select_image">
+      <%= form.label :写真 %>
+      <p class = "select_image"><%= form.file_field :image %></P>
+      <P><%= form.hidden_field :image_cache %></P>
+    </div>
 
-  <div class="field select_image">
-    <%= form.label :写真 %>
-    <p class = "select_image"><%= form.file_field :image %></P>
-    <P><%= form.hidden_field :image_cache %></P>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
   </div>
 <% end %>

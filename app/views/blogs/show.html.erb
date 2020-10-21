@@ -1,16 +1,12 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>投稿内容</strong>
+<h2>投稿内容</h2>
+<div class="one_box">
   <%= @blog.content %>
-</p>
-<p>
   <%= image_tag @blog.image.url if @blog.image.url %>
-</p>
-<% if logged_in? %>
-  <% if current_user.id == @blog.user_id %>
-    <%= link_to '編集へ', edit_blog_path(@blog) %> 
+  <% if logged_in? %>
+    <% if current_user.id == @blog.user_id %>
+      <%= link_to '編集へ', edit_blog_path(@blog) %> 
+    <% end %>
   <% end %>
-<% end %>
+</div>
 
-<%= link_to '戻る', blogs_path %>
+<p class="go_to_index_blog"><%= link_to '戻る', blogs_path ,class:"btn-square" %></p>
