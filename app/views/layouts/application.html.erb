@@ -11,18 +11,18 @@
 
   <body>
     <header>
-      <%= link_to "マイページへ", user_path(current_user.id) if current_user %>
+      <%= link_to "マイページへ", user_path(current_user.id), class: "btn-flat-simple" if current_user %>
+      <% if logged_in? %>
+      <%= link_to "ログアウト", session_path(current_user.id), class: "btn-flat-simple", method: :delete %>
+      <% else %>
+      　  <%= link_to "新規登録", new_user_path, class: "btn-flat-simple" %>
+          <%= link_to "ログイン", new_session_path, class: "btn-flat-simple" %>
+      <% end %>
     </header>
     <% flash.each do |key, value| %>
       <%= content_tag(:div, value, class: "#{key}") %>
     <% end %>
-    <% if logged_in? %>
-      <%= link_to "ログアウト", session_path(current_user.id), method: :delete %>
-    <% else %>
-  　  <%= link_to "新規登録", new_user_path %>
-      <%= link_to "ログイン", new_session_path %>
-    <% end %>
-    <div class="new_conteiner">
+    <div class="application_conteiner">
       <%= yield %>
     </div>
     <footer>

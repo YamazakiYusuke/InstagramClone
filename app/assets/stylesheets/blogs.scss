@@ -1,3 +1,36 @@
 // Place all the styles related to the Blogs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.btn-flat-logo {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  color: #FFF;
+  background: #00bcd4;
+  transition: .4s;
+  height: 3rem;
+  width: 10rem;
+  margin-left: 30%;
+}
+
+.btn-flat-logo:hover {
+  background: #1ec7bb;
+}
+
+.edits p{
+  display: inline;
+  margin-left:2px;
+}
+
+.one_box{
+  margin: 30px 30px;
+  padding: 10px;
+  border: medium solid 
+}
+
+.index_title{
+  text-align: center;
+}

@@ -1,3 +1,46 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.user_info_container{
+  margin: 3rem 0;
+}
+
+.operation_box a{
+  margin-left: 3px;
+}
+
+h2{
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.new_input_box{
+  padding: 10px 30% 10px 30%;
+}
+
+.new_input_box .user_new{
+  margin-bottom: 20px;
+}
+
+.btn-square {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #668ad8;/*ボタン色*/
+  color: #FFF;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+}
+.btn-square:active {
+  /*ボタンを押したとき*/
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);/*下に動く*/
+  border-bottom: none;/*線を消す*/
+}
+
+.go_to_index_blog{
+  text-align: center;
+  margin-top: 30px;
+}

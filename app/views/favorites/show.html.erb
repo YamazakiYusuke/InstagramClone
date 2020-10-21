@@ -1,9 +1,10 @@
-<strong>お気に入り一覧</stroug>
+<h3 class="favorites_title">お気に入り一覧</h3>
 <% @favorites.each do |f| %>
-  <p><%= f.content %></p>
-  <p><%= image_tag f.image.url if f.image.url %></p>
-  <br>
-  <br>
+
+  <div class="one_box">
+    <p><%= f.content %></p>
+    <p><%= image_tag f.image.url if f.image.url %></p>
+  </div>
 <% end %>
 
-<%= link_to "戻る", user_path(current_user.id) %>
+<p class="favorites_operation"><%= link_to "戻る", user_path(current_user.id) %></p>

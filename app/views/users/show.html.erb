@@ -1,15 +1,16 @@
-<p>
-  <strong><%= @user.name %>のプロフィール</strong>
-</p>
-<p>
-  <strong>登録メールアドレス</strong>
-  <%= @user.email %>
-</p>
-<p>
-  <strong>プロフィール画像</strong>
-    <%= image_tag @user.image.url if @user.image.url %>
-</p>
-
-<%= link_to 'お気に入り一覧', favorite_path(@user.id) %> 
-<%= link_to 'プロフィール編集へ', edit_user_path(@user) %> 
-<%= link_to '戻る', blogs_path %>
+<h2><%= @user.name %>のプロフィール</h2>
+<div class="user_info_container">
+  <p>
+    <strong>登録メールアドレス</strong>
+    <%= @user.email %>
+  </p>
+  <p>
+    <strong>プロフィール画像</strong>
+      <%= image_tag @user.image.url if @user.image.url %>
+  </p>
+</div>
+<div class="operation_box">
+  <%= link_to 'お気に入り一覧', favorite_path(@user.id) %> 
+  <%= link_to 'プロフィール編集へ', edit_user_path(@user) %> 
+  <%= link_to '戻る', blogs_path %>
+</div>

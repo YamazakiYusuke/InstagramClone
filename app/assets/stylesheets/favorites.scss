@@ -1,3 +1,22 @@
 // Place all the styles related to the favorites controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.one_box{
+  margin: 30px 30px;
+  padding: 10px;
+  border: medium solid 
+}
+
+.favorites_operation{
+  text-align: center;
+  font-size: 1.3rem;
+  margin-top: 70px;
+}
+
+.favorites_title{
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
